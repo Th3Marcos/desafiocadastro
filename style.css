@@ -1,3 +1,12 @@
+/*
+ * ==========================================
+ * Projeto: Formulário Responsivo
+ * Desenvolvido por: Marcos Vinicio Andrade
+ * GitHub: github.com/SEU_USUARIO
+ * LinkedIn: linkedin.com/in/marcosvinicioa/
+ * Ano: 2026
+ * ==========================================
+ */
 @charset "UTF-8";
 
 :root {
@@ -7,22 +16,54 @@
     --font-family: 'Arial', sans-serif;
 }
 
+* {
+    box-sizing: border-box;
+}
+
+body,
+.form-container,
+input,
+button,
+footer,
+footer a,
+h1 {
+    transition: 0.5s ease;
+}
+
 body {
     font-family: var(--font-family);
     margin: 0;
-    padding: 0;
-    transition: background-color 0.4s, color 0.4s ease;
+    padding: 20px;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),
+        url("imagens/fundo.jfif");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    transition: color 0.4s ease;
 }
 
+
+/* TÍTULO */
+
 h1 {
-    color: var(--primary-color);
     text-align: center;
-    margin-top: 40px;
+    margin: 40px 0 20px;
     font-size: 2.5em;
     font-weight: bold;
     letter-spacing: 1px;
-    transition: color 0.4s ease;
 }
+
+
+/* LABEL */
 
 label {
     display: block;
@@ -30,91 +71,230 @@ label {
     font-weight: bold;
 }
 
+
+/* FORMULÁRIO */
+
+.form-container {
+    width: min(400px, 92%);
+    margin: 50px auto;
+    padding: 20px;
+
+    background-color: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 12px;
+
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+
+    transition: background-color 0.4s ease;
+}
+
+
+/* CAMPOS */
+
 input[type="text"],
 input[type="email"],
 input[type="password"] {
+    display: block;
+    width: 100%;
     padding: 10px;
     margin-bottom: 15px;
-    border: 1px solid var(--secondary-color);
+
+    border: 1px solid rgba(255, 255, 255, 0.5);
     border-radius: 4px;
-}
 
-.form-container {
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: var(--white);
-    border-radius: 8px;
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
-}
-
-.dark-mode .form-container {
-    background-color: var(--secondary-color);
-    color: var(--primary-color);
-    box-shadow: 0 3px 5px rgba(255, 255, 255, 0.1);
-}
-
-.dark-mode input[type="text"],
-.dark-mode input[type="email"],
-.dark-mode input[type="password"] {
-    background-color: var(--white);
-    border: 1px solid var(--primary-color);
+    background-color: rgba(255, 255, 255, 0.8);
     color: var(--secondary-color);
+
+    outline: none;
 }
+
+input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+
+/* BOTÃO */
 
 button.btn {
     position: fixed;
     top: 20px;
     right: 20px;
     z-index: 1000;
-    background-color: var(--primary-color);
-    color: var(--white);
+
     padding: 10px 15px;
+
+    background-color: var(--secondary-color);
+    color: var(--white);
+
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
+
     cursor: pointer;
-    transition: all 0.2s ease;
 }
+
+button:hover {
+    opacity: 0.8;
+}
+
+
+/* FOOTER */
+
+footer {
+    width: min(100%, 600px);
+    margin: auto auto 0;
+    padding: 15px 20px;
+
+    text-align: center;
+
+    background-color: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+
+    color: var(--white);
+    font-size: 0.9em;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.signature {
+    font-size: 0.8em;
+    opacity: 0.7;
+    letter-spacing: 2px;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+footer a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--primary-color);
+}
+
+
+/* MODO ESCURO */
 
 body.dark-mode {
-    background-color: var(--secondary-color);
+    color: var(--white);
+
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+        url("imagens/fundo.jfif");
+}
+
+.dark-mode .form-container {
+    background-color: rgba(30, 30, 30, 0.65);
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+}
+
+.dark-mode input[type="text"],
+.dark-mode input[type="email"],
+.dark-mode input[type="password"] {
+    border-color: rgba(52, 152, 219, 0.7);
+}
+
+.dark-mode footer {
+    background-color: rgba(20, 20, 20, 0.55);
+    border-color: rgba(52, 152, 219, 0.25);
+}
+
+.dark-mode footer a {
     color: var(--primary-color);
 }
 
-body.light-mode {
-    background-color: var(--white);
-    color: var(--secondary-color);
+.dark-mode footer a:hover {
+    color: var(--white);
 }
 
-body.dark-mode button:hover {
-    background-color: var(--primary-color);
-    opacity: 0.8;
-    transition: background-color 0.3s, opacity 0.3s;
-}
-
-body.light-mode button:hover {
-    background-color: var(--secondary-color);
-    opacity: 0.8;
-    transition: background-color 0.3s, opacity 0.3s;
-}
-
-body.light-mode h1 {
-    color: var(--secondary-color);
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1),
-        2px 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-body.dark-mode h1 {
+.dark-mode h1 {
     color: var(--primary-color);
-    text-shadow: 0 0 10px rgba(52, 152, 219, 0.3);
+    text-shadow: 0 0 10px rgba(52, 152, 219, 0.5);
 }
 
-.dark-mode button {
-    background-color: var(--primary-color);
+
+/* MODO CLARO */
+
+.light-mode h1 {
     color: var(--white);
+    text-shadow:
+        1px 1px 3px rgba(0, 0, 0, 0.5),
+        2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-.light-mode button {
-    background-color: var(--secondary-color);
-    color: var(--white);
+
+/* CELULAR */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 15px;
+        background-attachment: scroll;
+    }
+
+    h1 {
+        margin-top: 70px;
+        font-size: 2em;
+    }
+
+    .form-container {
+        margin: 30px auto;
+        padding: 18px;
+    }
+
+    button.btn {
+        top: 10px;
+        right: 10px;
+        padding: 9px 12px;
+        font-size: 14px;
+    }
+
+    footer {
+        width: 92%;
+        padding: 14px 15px;
+        font-size: 0.85em;
+    }
+}
+
+
+/* CELULAR PEQUENO */
+
+@media (max-width: 400px) {
+
+    body {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 1.7em;
+    }
+
+    .form-container {
+        padding: 15px;
+    }
+
+    button.btn {
+        top: 8px;
+        right: 8px;
+        padding: 8px 10px;
+        font-size: 13px;
+    }
+
+    footer {
+        padding: 12px 10px;
+        font-size: 0.8em;
+    }
 }
