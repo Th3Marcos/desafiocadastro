@@ -12,13 +12,15 @@
 <body class="light-mode">
     <h1>Cadastro de Usuário</h1>
     <div class="form-container">
-        <form action="processar_cadastro.php" method="POST" autocomplete="off">
+        <form action="processar_cadastro.php" method="POST" autocomplete="on">
             <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome" required><br><br>
+            <input type="text" id="nome" name="nome" required placeholder="Digite seu nome" autocomplete="name"><br><br>
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required><br><br>
+            <input type="email" id="email" name="email" required placeholder="Digite seu email"
+                autocomplete="email"><br><br>
             <label for="senha">Senha:</label>
-            <input type="password" id="senha" name="senha" required><br><br>
+            <input type="password" id="senha" name="senha" required placeholder="Digite sua senha"
+                autocomplete="current-password" minlength="6"><br><br>
             <input type="submit" value="Cadastrar">
         </form>
     </div>
